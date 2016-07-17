@@ -1,6 +1,6 @@
 {
   "name": "meanie-mongoose-to-json",
-  "description": "A simple plugin for Mongoose to normalize JSON output",
+  "description": "A simple plugin for Mongoose to normalize JSON output for use with Meanie Express Seed projects",
   "version": "1.0.0",
   "homepage": "https://github.com/meanie/express-error-types",
   "author": {

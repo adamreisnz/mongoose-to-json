@@ -19,6 +19,7 @@ npm install meanie-mongoose-to-json --save
 ```
 
 ## Usage
+
 As a global plugin for all Mongoose schema's:
 
 ```js
