@@ -1,0 +1,41 @@
+{
+  "name": "meanie-mongoose-to-json",
+  "description": "A simple plugin for Mongoose to normalize JSON output",
+  "version": "1.0.0",
+  "homepage": "https://github.com/meanie/express-error-types",
+  "author": {
+    "name": "Adam Buczynski",
+    "email": "me@adambuczynski.com",
+    "url": "http://adambuczynski.com/"
+  },
+  "contributors": [],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/meanie/express-error-types"
+  },
+  "bugs": {
+    "url": "https://github.com/meanie/express-error-types/issues"
+  },
+  "keywords": [
+    "meanie",
+    "mongoose",
+    "json",
+    "plugin"
+  ],
+  "engines": {
+    "node": ">=6.3.0",
+    "npm": ">=3.10.3"
+  },
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint .",
+    "postversion": "git push && git push --tags && npm publish"
+  },
+  "peerDependencies": {
+    "mongoose": "^4.5.4"
+  },
+  "devDependencies": {
+    "eslint": "^2.13.1"
+  }
+}
