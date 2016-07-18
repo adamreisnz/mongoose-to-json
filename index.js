@@ -32,6 +32,6 @@ module.exports = function toJSON(schema) {
       if (transform) {
         transform(doc, ret);
       }
-    }
+    },
   };
 };
