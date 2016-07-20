@@ -18,12 +18,12 @@ module.exports = function toJSON(schema) {
     transform(doc, ret) {
 
       //Delete version
-      if (ret.__v) {
+      if (typeof ret.__v !== 'undefined') {
         delete ret.__v;
       }
 
       //Set ID
-      if (ret._id) {
+      if (typeof ret._id === 'object' && ret._id.toString) {
         ret.id = ret._id.toString();
         delete ret._id;
       }
