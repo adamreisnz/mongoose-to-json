@@ -30,7 +30,7 @@ module.exports = function toJSON(schema) {
 
       //Call custom transform if present
       if (transform) {
-        transform(doc, ret);
+        return transform(doc, ret);
       }
     },
   };
