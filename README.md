@@ -23,7 +23,7 @@ npm install meanie-mongoose-to-json --save
 As a global plugin for all Mongoose schema's:
 
 ```js
-let mongoose = require('mongoose');
+const mongoose = require('mongoose');
 mongoose.plugin(require('meanie-mongoose-to-json'));
 ```
 
@@ -32,9 +32,9 @@ mongoose.plugin(require('meanie-mongoose-to-json'));
 For a specific (sub) schema:
 
 ```js
-let mongoose = require('mongoose');
-let Schema = mongoose.Schema;
-let MySchema = new Schema({});
+const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
+const MySchema = new Schema({});
 MySchema.plugin(require('meanie-mongoose-to-json'));
 ```
 
@@ -54,6 +54,34 @@ To a simpler:
 {
   "id": "400e8324a71d4410b9dc3980b5f8cdea",
   "name": "Item A"
+}
+```
+
+From version 1.1.0 onwards, this plugin now also removes private paths from the JSON, e.g.:
+
+```js
+const mongoose = require('mongoose');
+const toJson = require('meanie-mongoose-to-json');
+
+const schema = new mongoose.Schema({
+  email: {type: String},
+  password: {type: String, private: true},
+});
+
+schema.plugin(toJson);
+
+const User = mongoose.model('users', schema);
+const user = new User({email: 'test@test.com', password: 'test'});
+
+console.log(user.toJSON());
+```
+
+This will output:
+
+```json
+{
+  "id": "400e8324a71d4410b9dc3980b5f8cdea",
+  "email": "test@test.com"
 }
 ```
 

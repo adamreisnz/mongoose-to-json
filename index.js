@@ -17,6 +17,15 @@ module.exports = function toJSON(schema) {
   schema.options.toJSON = {
     transform(doc, ret) {
 
+      //Remove private paths
+      for (const path in schema.paths) {
+        if (schema.paths[path].options && schema.paths[path].options.private) {
+          if (typeof ret[path] !== 'undefined') {
+            delete ret[path];
+          }
+        }
+      }
+
       //Delete version
       if (typeof ret.__v !== 'undefined') {
         delete ret.__v;
