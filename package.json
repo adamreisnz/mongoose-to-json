@@ -1,7 +1,7 @@
 {
   "name": "meanie-mongoose-to-json",
   "description": "A simple plugin for Mongoose to normalize JSON output for use with Meanie Express Seed projects",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "homepage": "https://github.com/meanie/mongoose-to-json",
   "author": {
     "name": "Adam Reis",
