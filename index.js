@@ -33,7 +33,9 @@ module.exports = function toJSON(schema) {
 
       //Set ID
       if (ret._id && typeof ret._id === 'object' && ret._id.toString) {
-        ret.id = ret._id.toString();
+        if (typeof ret.id === 'undefined') {
+          ret.id = ret._id.toString();
+        }
         delete ret._id;
       }
 
