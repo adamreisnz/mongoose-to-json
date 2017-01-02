@@ -18,26 +18,13 @@ module.exports = function toJSON(schema) {
     transform(doc, ret) {
 
       //Remove private paths
-      for (const path in schema.paths) {
-        if (schema.paths[path].options && schema.paths[path].options.private) {
-          if (typeof ret[path] !== 'undefined') {
-            delete ret[path];
-          }
-        }
-      }
+      removePrivatePaths(ret, schema);
 
-      //Delete version
-      if (typeof ret.__v !== 'undefined') {
-        delete ret.__v;
-      }
+      //Remove version
+      removeVersion(ret);
 
       //Set ID
-      if (ret._id && typeof ret._id === 'object' && ret._id.toString) {
-        if (typeof ret.id === 'undefined') {
-          ret.id = ret._id.toString();
-        }
-        delete ret._id;
-      }
+      setId(ret);
 
       //Call custom transform if present
       if (transform) {
@@ -46,3 +33,37 @@ module.exports = function toJSON(schema) {
     },
   };
 };
+
+/**
+ * Helper to remove private paths
+ */
+function removePrivatePaths(ret, schema) {
+  for (let path in schema.paths) {
+    if (schema.paths[path].options && schema.paths[path].options.private) {
+      if (typeof ret[path] !== 'undefined') {
+        delete ret[path];
+      }
+    }
+  }
+}
+
+/**
+ * Helper to remove version
+ */
+function removeVersion(ret) {
+  if (typeof ret.__v !== 'undefined') {
+    delete ret.__v;
+  }
+}
+
+/**
+ * Helper to set ID
+ */
+function setId(ret) {
+  if (ret._id && typeof ret._id === 'object' && ret._id.toString) {
+    if (typeof ret.id === 'undefined') {
+      ret.id = ret._id.toString();
+    }
+    delete ret._id;
+  }
+}
