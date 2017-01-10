@@ -38,7 +38,7 @@ module.exports = function toJSON(schema) {
  * Helper to remove private paths
  */
 function removePrivatePaths(ret, schema) {
-  for (let path in schema.paths) {
+  for (const path in schema.paths) {
     if (schema.paths[path].options && schema.paths[path].options.private) {
       if (typeof ret[path] !== 'undefined') {
         delete ret[path];
