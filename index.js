@@ -13,8 +13,8 @@ module.exports = function toJSON(schema) {
     transform = schema.options.toJSON.transform;
   }
 
-  //Set toJSON handler
-  schema.options.toJSON = {
+  //Extend toJSON options
+  schema.options.toJSON = Object.assign(schema.options.toJSON || {}, {
     transform(doc, ret) {
 
       //Remove private paths
@@ -31,7 +31,7 @@ module.exports = function toJSON(schema) {
         return transform(doc, ret);
       }
     },
-  };
+  });
 };
 
 /**
