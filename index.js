@@ -3,9 +3,9 @@
 /**
  * Load helpers
  */
-const normalizeId = require('./normalize-id');
-const removeVersion = require('./remove-version');
-const removePrivatePaths = require('./remove-private-paths');
+const normalizeId = require('./helpers/normalize-id');
+const removeVersion = require('./helpers/remove-version');
+const removePrivatePaths = require('./helpers/remove-private-paths');
 
 /**
  * Default toJSON implementation for mongoose schema's

@@ -24,7 +24,7 @@ npm install @meanie/mongoose-to-json --save
 
 ## Usage
 
-As a global plugin for all Mongoose schema's:
+Setup as a global plugin for all Mongoose schema's:
 
 ```js
 const mongoose = require('mongoose');
@@ -33,7 +33,7 @@ const toJson = require('@meanie/mongoose-to-json');
 mongoose.plugin(toJson);
 ```
 
-For a specific (sub) schema:
+Or for a specific (sub) schema:
 
 ```js
 const mongoose = require('mongoose');
