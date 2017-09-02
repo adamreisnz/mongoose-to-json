@@ -6,7 +6,7 @@
 [![codacy](https://img.shields.io/codacy/400e8324a71d4410b9dc3980b5f8cdea.svg)](https://www.codacy.com/app/meanie/mongoose-to-json)
 
 
-A simple plugin for Mongoose to normalize JSON output, for use with [Meanie Express Seed](https://github.com/meanie/express-seed) projects
+A plugin for Mongoose to normalize JSON output
 
 ![Meanie](https://raw.githubusercontent.com/meanie/meanie/master/meanie-logo-full.png)
 
