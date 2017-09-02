@@ -1,6 +1,6 @@
-# meanie-mongoose-to-json
+# @meanie/mongoose-to-json
 
-[![npm version](https://img.shields.io/npm/v/meanie-mongoose-to-json.svg)](https://www.npmjs.com/package/meanie-mongoose-to-json)
+[![npm version](https://img.shields.io/npm/v/@meanie/mongoose-to-json.svg)](https://www.npmjs.com/package/@meanie/mongoose-to-json)
 [![node dependencies](https://david-dm.org/meanie/mongoose-to-json.svg)](https://david-dm.org/meanie/mongoose-to-json)
 [![github issues](https://img.shields.io/github/issues/meanie/mongoose-to-json.svg)](https://github.com/meanie/mongoose-to-json/issues)
 [![codacy](https://img.shields.io/codacy/400e8324a71d4410b9dc3980b5f8cdea.svg)](https://www.codacy.com/app/meanie/mongoose-to-json)
@@ -12,10 +12,14 @@ A simple plugin for Mongoose to normalize JSON output, for use with [Meanie Expr
 
 ## Installation
 
-You can install this package using `npm`.
+You can install this package using `yarn` or `npm`.
 
 ```shell
-npm install meanie-mongoose-to-json --save
+#yarn
+yarn add @meanie/mongoose-to-json
+
+#npm
+npm install @meanie/mongoose-to-json --save
 ```
 
 ## Usage
@@ -24,18 +28,20 @@ As a global plugin for all Mongoose schema's:
 
 ```js
 const mongoose = require('mongoose');
-mongoose.plugin(require('meanie-mongoose-to-json'));
-```
+const toJson = require('@meanie/mongoose-to-json');
 
-*NOTE: as of Mongoose 4.5.4 this does not work for sub schema's yet, see [ #4271](https://github.com/Automattic/mongoose/issues/4271).*
+mongoose.plugin(toJson);
+```
 
 For a specific (sub) schema:
 
 ```js
 const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+const toJson = require('@meanie/mongoose-to-json');
+const {Schema} = mongoose;
+
 const MySchema = new Schema({});
-MySchema.plugin(require('meanie-mongoose-to-json'));
+MySchema.plugin(toJson);
 ```
 
 This plugin will normalize JSON output for client side applications from:
@@ -48,7 +54,7 @@ This plugin will normalize JSON output for client side applications from:
 }
 ```
 
-To a simpler:
+To a cleaner:
 
 ```json
 {
@@ -57,13 +63,14 @@ To a simpler:
 }
 ```
 
-From version 1.1.0 onwards, this plugin now also removes private paths from the JSON, e.g.:
+You can also remove private paths from the JSON:
 
 ```js
 const mongoose = require('mongoose');
-const toJson = require('meanie-mongoose-to-json');
+const toJson = require('@meanie/mongoose-to-json');
+const {Schema} = mongoose;
 
-const schema = new mongoose.Schema({
+const schema = new Schema({
   email: {type: String},
   password: {type: String, private: true},
 });
@@ -87,7 +94,7 @@ This will output:
 
 ## Issues & feature requests
 
-Please report any bugs, issues, suggestions and feature requests in the [meanie-mongoose-to-json issue tracker](https://github.com/meanie/mongoose-to-json/issues).
+Please report any bugs, issues, suggestions and feature requests in the [@meanie/mongoose-to-json issue tracker](https://github.com/meanie/mongoose-to-json/issues).
 
 ## Contributing
 
@@ -100,4 +107,4 @@ Pull requests are welcome! If you would like to contribute to Meanie, please che
 ## License
 (MIT License)
 
-Copyright 2016-2017, [Adam Reis](http://adam.reis.nz)
+Copyright 2016-2017, [Adam Reis](https://adam.reis.nz)

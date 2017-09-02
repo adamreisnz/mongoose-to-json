@@ -1,6 +1,13 @@
 'use strict';
 
 /**
+ * Load helpers
+ */
+const normalizeId = require('./normalize-id');
+const removeVersion = require('./remove-version');
+const removePrivatePaths = require('./remove-private-paths');
+
+/**
  * Default toJSON implementation for mongoose schema's
  */
 module.exports = function toJSON(schema) {
@@ -23,8 +30,8 @@ module.exports = function toJSON(schema) {
       //Remove version
       removeVersion(ret);
 
-      //Set ID
-      setId(ret);
+      //Normalize ID
+      normalizeId(ret);
 
       //Call custom transform if present
       if (transform) {
@@ -33,37 +40,3 @@ module.exports = function toJSON(schema) {
     },
   });
 };
-
-/**
- * Helper to remove private paths
- */
-function removePrivatePaths(ret, schema) {
-  for (const path in schema.paths) {
-    if (schema.paths[path].options && schema.paths[path].options.private) {
-      if (typeof ret[path] !== 'undefined') {
-        delete ret[path];
-      }
-    }
-  }
-}
-
-/**
- * Helper to remove version
- */
-function removeVersion(ret) {
-  if (typeof ret.__v !== 'undefined') {
-    delete ret.__v;
-  }
-}
-
-/**
- * Helper to set ID
- */
-function setId(ret) {
-  if (ret._id && typeof ret._id === 'object' && ret._id.toString) {
-    if (typeof ret.id === 'undefined') {
-      ret.id = ret._id.toString();
-    }
-    delete ret._id;
-  }
-}
