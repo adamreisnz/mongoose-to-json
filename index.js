@@ -25,13 +25,19 @@ module.exports = function toJSON(schema) {
     transform(doc, ret) {
 
       //Remove private paths
-      removePrivatePaths(ret, schema);
+      if (schema.options.removePrivatePaths !== false) {
+        removePrivatePaths(ret, schema);
+      }
 
       //Remove version
-      removeVersion(ret);
+      if (schema.options.removeVersion !== false) {
+        removeVersion(ret);
+      }
 
       //Normalize ID
-      normalizeId(ret);
+      if (schema.options.normalizeId !== false) {
+        normalizeId(ret);
+      }
 
       //Call custom transform if present
       if (transform) {
