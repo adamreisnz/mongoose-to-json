@@ -2,7 +2,7 @@
 
 ## Update
 
-** Add Date to timestamp transforming **
+**Add Date to timestamp transforming**
 
 [![npm version](https://img.shields.io/npm/v/@meanie/mongoose-to-json.svg)](https://www.npmjs.com/package/@meanie/mongoose-to-json)
 [![node dependencies](https://david-dm.org/meanie/mongoose-to-json.svg)](https://david-dm.org/meanie/mongoose-to-json)
@@ -16,14 +16,12 @@ A plugin for Mongoose to normalize JSON output
 
 ## Installation
 
-You can install this package using `yarn` or `npm`.
+You can install this package using `npm`.
 
 ```shell
-#yarn
-yarn add @meanie/mongoose-to-json
 
 #npm
-npm install @meanie/mongoose-to-json --save
+npm install github:wulie88/mongoose-to-json --save
 ```
 
 ## Usage
