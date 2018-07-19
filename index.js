@@ -4,6 +4,7 @@
  * Load helpers
  */
 const normalizeId = require('./helpers/normalize-id');
+const date2timestamp = require('./helpers/date-to-timestamp');
 const removeVersion = require('./helpers/remove-version');
 const removePrivatePaths = require('./helpers/remove-private-paths');
 
@@ -38,6 +39,9 @@ module.exports = function toJSON(schema) {
       if (schema.options.normalizeId !== false) {
         normalizeId(ret);
       }
+
+      //date-to-timestamp
+      date2timestamp(ret);
 
       //Call custom transform if present
       if (transform) {

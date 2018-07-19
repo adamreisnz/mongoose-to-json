@@ -1,5 +1,9 @@
 # @meanie/mongoose-to-json
 
+## Update
+
+** Add Date to timestamp transforming **
+
 [![npm version](https://img.shields.io/npm/v/@meanie/mongoose-to-json.svg)](https://www.npmjs.com/package/@meanie/mongoose-to-json)
 [![node dependencies](https://david-dm.org/meanie/mongoose-to-json.svg)](https://david-dm.org/meanie/mongoose-to-json)
 [![github issues](https://img.shields.io/github/issues/meanie/mongoose-to-json.svg)](https://github.com/meanie/mongoose-to-json/issues)
