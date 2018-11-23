@@ -22,7 +22,7 @@ module.exports = function toJSON(schema) {
 
   //Extend toJSON options
   schema.options.toJSON = Object.assign(schema.options.toJSON || {}, {
-    transform(doc, ret) {
+    transform(doc, ret, options) {
 
       //Remove private paths
       if (schema.options.removePrivatePaths !== false) {
@@ -41,7 +41,7 @@ module.exports = function toJSON(schema) {
 
       //Call custom transform if present
       if (transform) {
-        return transform(doc, ret);
+        return transform(doc, ret, options);
       }
     },
   });
