@@ -33,6 +33,8 @@ const toJson = require('@meanie/mongoose-to-json');
 mongoose.plugin(toJson);
 ```
 
+**Important:** Make sure to load your plugins prior to defining models, otherwise the plugin won't get registered on your models!
+
 Or for a specific (sub) schema:
 
 ```js
