@@ -1,7 +1,7 @@
 {
   "name": "@meanie/mongoose-to-json",
   "description": "A plugin for Mongoose to normalize JSON output",
-  "version": "2.4.0",
+  "version": "2.4.1",
   "homepage": "https://github.com/meanie/mongoose-to-json",
   "author": {
     "name": "Adam Reis",
