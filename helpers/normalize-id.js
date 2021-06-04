@@ -9,8 +9,4 @@ module.exports = function normalizeId(ret) {
       ret.id = ret._id.toString();
     }
   }
-// Do not remove _id
-//   if (typeof ret._id !== 'undefined') {
-//     delete ret._id;
-//   }
 };
