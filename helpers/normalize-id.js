@@ -9,7 +9,4 @@ module.exports = function normalizeId(ret) {
       ret.id = ret._id.toString();
     }
   }
-  if (typeof ret._id !== 'undefined') {
-    delete ret._id;
-  }
 };

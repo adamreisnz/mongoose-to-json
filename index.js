@@ -4,6 +4,7 @@
  * Load helpers
  */
 const normalizeId = require('./helpers/normalize-id');
+const removeUnderscoreId = require('./helpers/remove-underscore-id');
 const removeVersion = require('./helpers/remove-version');
 const removePrivatePaths = require('./helpers/remove-private-paths');
 
@@ -39,11 +40,16 @@ module.exports = function toJSON(schema) {
         normalizeId(ret);
       }
 
+      //Remove _id
+      if (schema.options.removeUnderscoreId === true) {
+        removeUnderscoreId(ret);
+      }
+
       //Call custom transform if present
       if (transform) {
         return transform(doc, ret, options);
       }
-      
+
       return ret;
     },
   });

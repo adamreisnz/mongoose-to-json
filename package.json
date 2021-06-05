@@ -1,7 +1,7 @@
 {
-  "name": "@meanie/mongoose-to-json",
+  "name": "@taina/mongoose-to-json",
   "description": "A plugin for Mongoose to normalize JSON output",
-  "version": "2.5.0",
+  "version": "3.0.0",
   "homepage": "https://github.com/meanie/mongoose-to-json",
   "author": {
     "name": "Adam Reis",
@@ -35,5 +35,8 @@
   },
   "peerDependencies": {
     "mongoose": "^4.11.9 || ^5.0.3"
+  },
+  "dependencies": {
+    "dot-prop": "^5.3.0"
   }
 }
