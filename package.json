@@ -1,12 +1,12 @@
 {
-  "name": "@meanie/mongoose-to-json",
+  "name": "@reis/mongoose-to-json",
   "description": "A plugin for Mongoose to normalize JSON output",
-  "version": "2.6.0",
-  "homepage": "https://github.com/meanie/mongoose-to-json",
+  "version": "3.0.0",
+  "type": "module",
+  "homepage": "https://github.com/adamreisnz/mongoose-to-json",
   "author": {
     "name": "Adam Reis",
-    "email": "adam@reis.nz",
-    "url": "https://adam.reis.nz/"
+    "email": "adam@reis.nz"
   },
   "contributors": [],
   "license": "MIT",
@@ -15,25 +15,24 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/meanie/mongoose-to-json"
+    "url": "https://github.com/adamreisnz/mongoose-to-json"
   },
   "bugs": {
-    "url": "https://github.com/meanie/mongoose-to-json/issues"
+    "url": "https://github.com/adamreisnz/mongoose-to-json/issues"
   },
   "keywords": [
-    "meanie",
     "mongoose",
     "json",
     "plugin"
   ],
   "engines": {
-    "node": ">=8"
+    "node": ">=18"
   },
   "main": "index.js",
   "scripts": {
-    "postversion": "git push && git push --tags && npm publish"
+    "postversion": "git push && npm publish"
   },
   "peerDependencies": {
-    "mongoose": ">=4.13.9"
+    "mongoose": ">=7.1.0"
   }
 }

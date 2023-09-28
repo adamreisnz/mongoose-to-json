@@ -32,7 +32,7 @@ rules:
       MemberExpression: off
   semi:
     - error
-    - always
+    - never
   consistent-this:
     - error
     - self

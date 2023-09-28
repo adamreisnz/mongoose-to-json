@@ -1,9 +1,7 @@
-# @meanie/mongoose-to-json
+# @reis/mongoose-to-json
 
-[![npm version](https://img.shields.io/npm/v/@meanie/mongoose-to-json.svg)](https://www.npmjs.com/package/@meanie/mongoose-to-json)
-[![node dependencies](https://david-dm.org/meanie/mongoose-to-json.svg)](https://david-dm.org/meanie/mongoose-to-json)
-[![github issues](https://img.shields.io/github/issues/meanie/mongoose-to-json.svg)](https://github.com/meanie/mongoose-to-json/issues)
-[![codacy](https://img.shields.io/codacy/400e8324a71d4410b9dc3980b5f8cdea.svg)](https://www.codacy.com/app/meanie/mongoose-to-json)
+[![npm version](https://img.shields.io/npm/v/@reis/mongoose-to-json.svg)](https://www.npmjs.com/package/@meanie/mongoose-to-json)
+[![github issues](https://img.shields.io/github/issues/adamreisnz/mongoose-to-json.svg)](https://github.com/adamreisnz/mongoose-to-json/issues)
 
 
 A plugin for Mongoose to normalize JSON output
@@ -16,10 +14,10 @@ You can install this package using `yarn` or `npm`.
 
 ```shell
 #yarn
-yarn add @meanie/mongoose-to-json
+yarn add @reis/mongoose-to-json
 
 #npm
-npm install @meanie/mongoose-to-json --save
+npm install @reis/mongoose-to-json --save
 ```
 
 ## Usage
@@ -27,23 +25,26 @@ npm install @meanie/mongoose-to-json --save
 Setup as a global plugin for all Mongoose schema's:
 
 ```js
-const mongoose = require('mongoose');
-const toJson = require('@meanie/mongoose-to-json');
+import mongoose from 'mongoose'
+import {toJson} from '@reis/mongoose-to-json'
 
-mongoose.plugin(toJson);
+//Global plugin
+mongoose.plugin(toJson)
 ```
-
-**Important:** Make sure to load your plugins prior to defining models, otherwise the plugin won't get registered on your models!
 
 Or for a specific (sub) schema:
 
 ```js
-const mongoose = require('mongoose');
-const toJson = require('@meanie/mongoose-to-json');
-const {Schema} = mongoose;
+import mongoose from 'mongoose'
+import {toJson} from '@reis/mongoose-to-json'
+const {Schema} = mongoose
 
-const MySchema = new Schema({});
-MySchema.plugin(toJson);
+//Define schema
+const MySchema = new Schema(/* ... */})
+
+//Apply plugin
+MySchema.plugin(toJson)
+```
 ```
 
 This plugin will normalize JSON output for client side applications from:
@@ -68,21 +69,21 @@ To a cleaner:
 You can also remove private paths from the JSON:
 
 ```js
-const mongoose = require('mongoose');
-const toJson = require('@meanie/mongoose-to-json');
-const {Schema} = mongoose;
+import mongoose from 'mongoose'
+import {toJson} from '@reis/mongoose-to-json'
+const {Schema} = mongoose
 
 const schema = new Schema({
   email: {type: String},
   password: {type: String, private: true},
-});
+})
 
-schema.plugin(toJson);
+schema.plugin(toJson)
 
-const User = mongoose.model('users', schema);
-const user = new User({email: 'test@test.com', password: 'test'});
+const User = mongoose.model('users', schema)
+const user = new User({email: 'test@test.com', password: 'test'})
 
-console.log(user.toJSON());
+console.log(user.toJSON())
 ```
 
 This will output:
@@ -96,18 +97,10 @@ This will output:
 
 ## Issues & feature requests
 
-Please report any bugs, issues, suggestions and feature requests in the [@meanie/mongoose-to-json issue tracker](https://github.com/meanie/mongoose-to-json/issues).
-
-## Contributing
-
-Pull requests are welcome! If you would like to contribute to Meanie, please check out the [Meanie contributing guidelines](https://github.com/meanie/meanie/blob/master/CONTRIBUTING.md).
-
-## Sponsor
-
-This package has been kindly sponsored by [Hello Club](https://helloclub.com?source=meanie), an [all in one club and membership management solution](https://helloclub.com?source=meanie) complete with booking system, automated membership renewals, online payments and integrated access and light control. Check us out if you happen to belong to any kind of club or if you know someone who helps run a club!
+Please report any bugs, issues, suggestions and feature requests in the [mongoose-to-json issue tracker](https://github.com/adamreisnz/mongoose-to-json/issues).
 
 ## License
 
 (MIT License)
 
-Copyright 2016-2020, Adam Reis
+Copyright 2016-2023, Adam Reis
