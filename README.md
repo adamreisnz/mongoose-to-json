@@ -1,12 +1,10 @@
 # @reis/mongoose-to-json
 
-[![npm version](https://img.shields.io/npm/v/@reis/mongoose-to-json.svg)](https://www.npmjs.com/package/@meanie/mongoose-to-json)
+[![npm version](https://img.shields.io/npm/v/@reis/mongoose-to-json.svg)](https://www.npmjs.com/package/@reis/mongoose-to-json)
 [![github issues](https://img.shields.io/github/issues/adamreisnz/mongoose-to-json.svg)](https://github.com/adamreisnz/mongoose-to-json/issues)
 
 
 A plugin for Mongoose to normalize JSON output
-
-![Meanie](https://raw.githubusercontent.com/meanie/meanie/master/meanie-logo-full.png)
 
 ## Installation
 
@@ -44,7 +42,6 @@ const MySchema = new Schema(/* ... */})
 
 //Apply plugin
 MySchema.plugin(toJson)
-```
 ```
 
 This plugin will normalize JSON output for client side applications from:
